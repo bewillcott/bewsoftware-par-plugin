@@ -25,12 +25,13 @@ This plugin has just the one goal:
 - **process**:  
 This will do the work. There are two configuration options:
 
-    - absolutePaths {false} - Set all directory paths to absolute, *instead* of 
-relative, which is the default.
-     * This will mean, that references to your local directory structure
-     * will be stored inside the <u>jar</u> file. This could become a breach of
-     * security, or at least privacy.
-    - filename {pom.xml} - The name of the file to write to.
+    - <u>absolutePaths</u> {false}:<br>
+        Set all directory paths to absolute, *instead* of relative, which is the default.
+        This will mean, that references to your local directory structure
+        will be stored inside the <u>jar</u> file. This could become a breach of
+        security, or at least privacy.
+    - <u>filename</u> {pom.xml}:<br>
+        The name of the file to write to.
 
 ## Status
 This plugin is fully functional. You are welcome to clone and compile
