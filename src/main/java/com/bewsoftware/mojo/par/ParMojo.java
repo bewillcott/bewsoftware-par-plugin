@@ -39,25 +39,7 @@ import static java.lang.String.format;
 import static org.apache.maven.plugins.annotations.LifecyclePhase.GENERATE_RESOURCES;
 
 /**
- * This maven plug-in exports the current maven {@link Model}.
- * <p>
- * That is, the fully interpolated version of the "pom.xml".
- * <p>
- * Why would you want this? There are possibly as many reasons as there
- * are developers. However, I wrote this little cutie because I was sick
- * of having to use extra files to get information out of the pom. Why
- * do that when the pom is just there? Unfortunately, getting to the
- * pom.xml file inside the jar file was difficult. You had to have some
- * of the information inside the pom to get to the pom.xml file:
- * <p>
- * {@code META-INF/maven/${project.groupId}/${project.artifact}/pom.xml}
- * <p>
- * This made any method I could come up with, very non-generic. Which I
- * hate. Once this is run, you will find the very full pom.xml file in
- * the root directory of where resources are normally stored:
- * <p>
- * {@code }
- *
+ * This is where the work gets done.
  *
  * @author <a href="mailto:bw.opensource@yahoo.com">Bradley Willcott</a>
  *
@@ -79,7 +61,7 @@ public class ParMojo extends AbstractMojo
      * <p>
      * This will mean, that references to your local directory structure
      * will be stored inside the <u>jar</u> file. This could become a breach of
-     * security.
+     * security, or at least privacy.
      */
     @Parameter(property = "par.absolutePaths", defaultValue = "false", required = true)
     private String absolutePaths;
@@ -87,7 +69,7 @@ public class ParMojo extends AbstractMojo
     /**
      * The name of the file to write to.
      */
-    @Parameter(property = "par.filename", defaultValue = "pom.xml", required = true)
+    @Parameter(property = "par.filename", defaultValue = DEFAULT_FILENAME, required = true)
     private String filename;
 
     /**
